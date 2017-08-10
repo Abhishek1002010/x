@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="styles/styles.css">
   </head>
 <body ng-app="NarrowItDownApp">
-   <div class="container" ng-controller="NarrowItDownController as narrow">
+<div ng-controller="NarrowItDownController as narrow">
+   <div class="container" >
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
@@ -19,10 +20,14 @@
     <div class="form-group narrow-button">
       <button ng-click="narrow.getMatchedMenuItems(searchTerm)" class="btn btn-primary">Narrow It Down For Me!</button>
     </div>
-
+</div>
     <!-- found-items should be implemented as a component -->
-    <found-items found-item="narrow.foundItems" on-remove="narrow.remove(index)"></found-items>
-  </div>
-
+  <div ng-if="(x==1) || (x==0 && narrow.foundItems.length==0)">
+    Nothing found
+  </div >
+<div >
+    <found-items found-item="narrow.foundItems" on-remove="narrow.remove(arg)"></found-items>
+</div >
+</div>
 </body>
 </html>
